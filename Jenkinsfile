@@ -12,11 +12,11 @@ pipeline {
                 sh 'terraform init '
             }
         }
-       // stage('Plan') {
-        //    steps {
-       //         sh 'terraform plan'
-       //     }
-      //  }
+        stage('Plan') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
         //stage('Confirm') {
           //  steps {
             //    script {
