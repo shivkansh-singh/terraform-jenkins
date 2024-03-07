@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "registry.terraform.io/hashicorp/aws"
+      version = ">=5.31.0"
+    }
+  }
+}
+
 resource "aws_instance" "linux" {
   ami           = "ami-0a0f1259dd1c90938"
   instance_type = "t2.micro"
@@ -7,12 +16,4 @@ resource "aws_instance" "linux" {
     Name = "HelloWorld-${count.index}"
   }
   count = 1
-}
-terraform {
-  required_providers {
-    aws = {
-      source  = "registry.terraform.io/hashicorp/aws"
-      version = ">=5.31.0"
-    }
-  }
 }
