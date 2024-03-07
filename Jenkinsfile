@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Plan') {
             steps {
-                sh 'terraform plan -out main.tfplan'
+                sh 'terraform plan out main.tfplan'
             }
         }
         //stage('Confirm') {
