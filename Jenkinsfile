@@ -21,13 +21,13 @@ pipeline {
                 sh 'terraform plan -out main.tfplan'
             }
         }
-        //stage('Confirm') {
-          //  steps {
-            //    script {
-              //      def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
-             //   }
-            // }
-        // }
+        stage('Confirm') {
+            steps {
+                script {
+                    def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+                }
+             }
+         }
         stage('Action') {
             steps {
                 sh 'terraform apply --auto-approve'
